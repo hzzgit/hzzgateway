@@ -48,6 +48,7 @@ public class RouteServiceimpl implements RouteLocator {
 
             List<GatewayFilter> filters = new ArrayList<>();
             filters.add((GatewayFilter) applicationContext.getBean("autoCutPathFilter"));
+            filters.add((GatewayFilter) applicationContext.getBean("onlineUserFilter"));
             //filters.add((GatewayFilter) applicationContext.getBean("gatewayLogFilter"));
             RouteLocator build = builder.routes()
                     .route(r -> r.path("/test/**").filters(f -> f.filters(filters))
